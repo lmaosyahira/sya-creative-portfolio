@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative Portfolio — Nurul Syahira Afzanizam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --grid-line: #ececec;
+      --ink: #0f0f0f;
+      --muted: #4a4a4a;
+      --green: #b4d493;       /* Exact sage green from your PDF */
+      --green-soft: #e2f0d4;  /* Soft tint for tags & shadows */
+      --green-deep: #7fa658;  /* Deeper accent border */
+      --card-bg: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+      background-image:
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+      background-size: 38px 38px;
+    }
+
+    /* Top Minimalist Nav */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1.5px solid var(--ink);
+      padding: 0.9rem 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.03em;
+      color: var(--ink);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      transition: background 0.2s;
+    }
+    .nav-links a:hover {
+      background: var(--green);
+    }
+
+    /* Editorial Cover Hero */
+    .hero {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 4.5rem 6% 3.5rem;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 3rem;
+      align-items: center;
+      position: relative;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 2rem;
+      left: 2%;
+      width: 320px;
+      height: 320px;
+      background: var(--green-soft);
+      border-radius: 58% 42% 65% 35% / 45% 55% 45% 55%;
+      z-index: -1;
+      opacity: 0.85;
+    }
+    .cover-title {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(4.2rem, 8vw, 6.8rem);
+      line-height: 0.92;
+      text-transform: uppercase;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+      margin-bottom: 1.25rem;
+    }
+    .name-pill {
+      display: inline-block;
+      background: var(--green);
+      color: var(--ink);
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.45rem 1.25rem;
+      border-radius: 999px;
+      margin-bottom: 0.65rem;
+    }
+    .subtitle-line {
+      font-weight: 800;
+      font-size: 0.92rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 1.35rem;
+    }
+    .hero-bio {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 540px;
+      margin-bottom: 1.75rem;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 0.75rem 1rem;
+      border-left: 3px solid var(--green-deep);
+    }
+    .btn-group {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      border: 1.5px solid var(--ink);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0px var(--ink);
+    }
+    .btn-primary {
+      background: var(--ink);
+      color: #fff;
+    }
+    .btn-accent {
+      background: var(--green);
+      color: var(--ink);
+    }
+
+    /* Scrapbook Portrait Frame */
+    .portrait-frame {
+      position: relative;
+      background: #fff;
+      border: 2px solid var(--ink);
+      border-radius: 18px;
+      padding: 0.75rem;
+      box-shadow: 8px 8px 0px var(--green);
+      transform: rotate(1.5deg);
+    }
+    .portrait-frame img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
+    .sticker-tag {
+      position: absolute;
+      bottom: -14px;
+      left: -14px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      transform: rotate(-3deg);
+    }
+
+    /* Stats Strip */
+    .stats {
+      max-width: 1120px;
+      margin: 0 auto 2.5rem;
+      padding: 0 6%;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .stat-card {
+      background: #fff;
+      border: 1.5px solid var(--ink);
+      border-radius: 14px;
+      padding: 1.25rem;
+      box-shadow: 4px 4px 0px var(--green-soft);
+    }
+    .stat-card h3 {
+      font-family: 'Anton', sans-serif;
+      font-size: 2.1rem;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 0.25rem;
+    }
+    .stat-card p {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    /* Sections */
+    section {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 3.5rem 6%;
+    }
+    .section-header {
+      margin-bottom: 2rem;
+    }
+    .section-pill {
+      display: inline-block;
+      background: var(--green);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 0.5rem;
+    }
+    .section-header h2 {
+      font-family: 'Anton', sans-serif;
+      font-size: 2.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      line-height: 1.05;
+      margin-bottom: 0.4rem;
+    }
+    .section-header p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Filter Pills */
+    .filters {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .filter-btn {
+      padding: 0.45rem 1.05rem;
+      border-radius: 999px;
+      border: 1.5px solid var(--ink);
+      background: #fff;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--green);
+      box-shadow: 3px 3px 0px var(--ink);
+    }
+
+    /* Selected Works Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1.75rem;
+    }
+    .card {
+      background: #fff;
+      border: 1.5px solid var(--ink);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 7px 7px 0px var(--green);
+    }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-bottom: 1.5px solid var(--ink);
+      background: #f4f4f5;
+    }
+    .card-body {
+      padding: 1.35rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-tag {
+      display: inline-block;
+      align-self: flex-start;
+      background: var(--green-soft);
+      color: var(--ink);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      margin-bottom: 0.65rem;
+    }
+    .card h3 {
+      font-size: 1.12rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      flex: 1;
+    }
+    .card-link {
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      border-bottom: 2px solid var(--green);
+      align-self: flex-start;
+      padding-bottom: 2px;
+    }
+    .card-link:hover {
+      background: var(--green);
+    }
+
+    /* Published Articles Archive (Placed above Posters) */
+    .article-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .article-search {
+      padding: 0.55rem 1rem;
+      border: 1.5px solid var(--ink);
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.85rem;
+      min-width: 260px;
+      background: #fff;
+      outline: none;
+    }
+    .article-search:focus {
+      box-shadow: 3px 3px 0px var(--green);
+    }
+    .article-archive-box {
+      background: #fff;
+      border: 1.5px solid var(--ink);
+      border-radius: 16px;
+      box-shadow: 6px 6px 0px var(--green-soft);
+      max-height: 520px;
+      overflow-y: auto;
+    }
+    .article-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.9rem 1.25rem;
+      border-bottom: 1px solid var(--grid-line);
+      text-decoration: none;
+      color: var(--ink);
+      transition: background 0.15s;
+    }
+    .article-row:last-child {
+      border-bottom: none;
+    }
+    .article-row:hover {
+      background: var(--green-soft);
+    }
+    .article-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 1;
+    }
+    .article-num {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--muted);
+      min-width: 24px;
+    }
+    .article-name {
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+    .article-badges {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+    .type-pill {
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid var(--ink);
+      background: #fff;
+    }
+    .type-pill.long {
+      background: var(--green);
+    }
+    .date-pill {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--muted);
+      min-width: 72px;
+      text-align: right;
+    }
+
+    /* Poster Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 1.25rem;
+    }
+    .poster-item {
+      background: #fff;
+      border: 1.5px solid var(--ink);
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .poster-item:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 6px 6px 0px var(--green);
+    }
+    .poster-item img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      display: block;
+      background: #f4f4f5;
+    }
+    .poster-caption {
+      padding: 0.75rem 0.9rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--ink);
+      border-top: 1.5px solid var(--ink);
+      background: #fff;
+    }
+    .poster-caption span {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    /* Fullscreen Lightbox Modal */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 15, 15, 0.92);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      flex-direction: column;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80vh;
+      border: 2px solid #fff;
+      border-radius: 12px;
+    }
+    .lightbox-title {
+      background: var(--green);
+      color: var(--ink);
+      font-weight: 800;
+      padding: 0.45rem 1.2rem;
+      border-radius: 999px;
+      margin-top: 1rem;
+      font-size: 0.88rem;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      color: #fff;
+      font-size: 2.2rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    /* Leadership & Credentials Two-Column */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .list-box {
+      background: #fff;
+      border: 1.5px solid var(--ink);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: 6px 6px 0px var(--green-soft);
+    }
+    .list-box h3 {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 1.5px solid var(--ink);
+    }
+    .item { margin-bottom: 1.15rem; }
+    .item:last-child { margin-bottom: 0; }
+    .item-title { font-weight: 800; font-size: 0.95rem; }
+    .item-meta {
+      display: inline-block;
+      background: var(--green-soft);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      margin: 0.25rem 0;
+    }
+    .item-desc { font-size: 0.86rem; color: var(--muted); }
+
+    /* Footer */
+    footer {
+      background: var(--ink);
+      color: #fff;
+      text-align: center;
+      padding: 3.5rem 6%;
+      margin-top: 2rem;
+      border-top: 2px solid var(--ink);
+    }
+    footer h2 {
+      font-family: 'Anton', sans-serif;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.5rem;
+    }
+    footer p {
+      color: #d4d4d8;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      background: var(--green);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 0.55rem 1.25rem;
+      border-radius: 999px;
+      transition: transform 0.15s;
+    }
+    .footer-links a:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; padding-top: 2.5rem; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .two-col { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .portrait-frame { transform: none; max-width: 340px; margin: 0 auto; }
+      .article-row { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+      .article-badges { width: 100%; justify-content: space-between; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#" class="logo">Syahira.</a>
+    <ul class="nav-links">
+      <li><a href="#work">Selected Work</a></li>
+      <li><a href="#articles">Articles (60)</a></li>
+      <li><a href="#posters">Posters (22)</a></li>
+      <li><a href="#leadership">Leadership</a></li>
+      <li><a href="#credentials">Certificates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Cover Hero Section -->
+  <header class="hero">
+    <div>
+      <h1 class="cover-title">CREATIVE<br>PORTFOLIO</h1>
+      <div class="name-pill">NURUL SYAHIRA AFZANIZAM</div>
+      <div class="subtitle-line">FINAL-YEAR JOURNALISM STUDENT FROM UITM</div>
+      <p class="hero-bio">
+        Multimedia storyteller, data-driven infographic designer, and student executive leader (Vice President I, SMFKPM 26/27). Bridging investigative journalism with high-impact visual design and web deployment.
+      </p>
+      <div class="btn-group">
+        <a href="#articles" class="btn btn-primary">Read Published Articles</a>
+        <a href="#posters" class="btn btn-accent">View 22 Posters</a>
+      </div>
+    </div>
+
+    <div class="portrait-frame">
+      <img src="assets/SYAHIRA_01.jpg" alt="Nurul Syahira Afzanizam" />
+      <span class="sticker-tag">UiTM Shah Alam • FCMS</span>
+    </div>
+  </header>
+
+  <!-- Key Metrics -->
+  <div class="stats">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <h3>215K+</h3>
+        <p>Organic Reads on Single Viral Article</p>
+      </div>
+      <div class="stat-card">
+        <h3>162</h3>
+        <p>Articles Written (60 Published Live)</p>
+      </div>
+      <div class="stat-card">
+        <h3>3.55</h3>
+        <p>CGPA (3x Dean's List Award)</p>
+      </div>
+      <div class="stat-card">
+        <h3>22+</h3>
+        <p>Faculty Posters & Campaigns</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Selected Creative Works -->
+  <section id="work">
+    <div class="section-header">
+      <span class="section-pill">01 • Featured Projects</span>
+      <h2>Selected Creative Works</h2>
+      <p>Curated highlights across viral digital journalism, editorial spreads, data visualization, and web development.</p>
+    </div>
+
+    <div class="filters" id="work-filters">
+      <button class="filter-btn active" onclick="filterWork('all', this)">All Works</button>
+      <button class="filter-btn" onclick="filterWork('journalism', this)">Journalism & Editorial</button>
+      <button class="filter-btn" onclick="filterWork('design', this)">Infographics & Branding</button>
+      <button class="filter-btn" onclick="filterWork('web', this)">Web & Events</button>
+    </div>
+
+    <div class="grid" id="work-grid">
+      <!-- Project 1: Viral Article -->
+      <article class="card" data-category="journalism">
+        <img src="assets/SKIBIDI.png" alt="Skibidi Toilet Syndrome Article" />
+        <div class="card-body">
+          <span class="card-tag">Viral Digital Journalism • 215,316 Reads</span>
+          <h3>Skibidi Toilet Syndrome in Kids – What Parents Need to Know</h3>
+          <p>Researched and authored an SEO-driven parenting explainer for Motherhood.com.my during my Enlinea Sdn Bhd internship, generating over 215K organic views.</p>
+          <a href="https://story.motherhood.com.my/blog/skibidi-toilet-syndrome-kids/" target="_blank" class="card-link">Read Live Article →</a>
+        </div>
+      </article>
+
+      <!-- Project 2: Organ Donation Infographic -->
+      <article class="card" data-category="design">
+        <img src="assets/SAT POSTERSSYAHIRA - INFOGRAFIKDERMA ORGAN.png" alt="Ilusi 16,000 Ikrar Infographic" />
+        <div class="card-body">
+          <span class="card-tag">Data Journalism • Shah Alam Times</span>
+          <h3>Ilusi 16,000 Ikrar: Ke Mana Perginya Penderma Organ Selangor?</h3>
+          <p>Translated Dewan Negeri Selangor healthcare statistics into a high-contrast social media visual explainer highlighting medical criteria and family consent policies (May 2026).</p>
+          <a href="https://www.instagram.com/p/DX0lAqOkpd7/" target="_blank" class="card-link">View on Instagram →</a>
+        </div>
+      </article>
+
+      <!-- Project 3: Hantavirus Infographic -->
+      <article class="card" data-category="design">
+        <img src="assets/SAT POSTERSSYAHIRA - INFOGRAFIKHANTAVIRUS.png" alt="Memahami Hantavirus Infographic" />
+        <div class="card-body">
+          <span class="card-tag">Public Health Visual • Shah Alam Times</span>
+          <h3>Memahami Hantavirus: Gejala & Cara Pencegahan</h3>
+          <p>Synthesized World Health Organization (WHO) guidelines into an accessible public awareness infographic detailing transmission, symptom timelines, and prevention (May 2026).</p>
+          <a href="https://www.instagram.com/p/DY6N4hQy9SD/" target="_blank" class="card-link">View on Instagram →</a>
+        </div>
+      </article>
+
+      <!-- Project 4: Sasaran Magazine -->
+      <article class="card" data-category="journalism">
+        <img src="assets/SILENT SCROLLING_ WHY WE CARE ONLINE, NOT OFFLINE - SYAHIRASILENT SCROLLING.png" alt="Sasaran Magazine 99th Edition" />
+        <div class="card-body">
+          <span class="card-tag">Print & Digital Magazine • Sasaran 99th Ed.</span>
+          <h3>Silent Scrolling & Film Symbolism Features</h3>
+          <p>Served as Journalist & Photo Editor for UiTM's flagship publication—authoring two feature spreads ("Silent Scrolling" & "The Weight of Silence in Schindler's List") and curating PSA layouts.</p>
+          <a href="https://online.fliphtml5.com/iopkd/zewh/#p=122" target="_blank" class="card-link">Flip to Page 122 →</a>
+        </div>
+      </article>
+
+      <!-- Project 5: NewsCamp 7.0 Website -->
+      <article class="card" data-category="web">
+        <img src="assets/IMG_1948.jpg" alt="NewsCamp 7.0 Web & Design" />
+        <div class="card-body">
+          <span class="card-tag">Web Development & Branding • NewsCamp 7.0</span>
+          <h3>Publication Website & Event Merchandise</h3>
+          <p>Led the Website Department to code and deploy the official NewsCamp 7.0 publication site via VS Code, GitHub, and Netlify, alongside designing event posters and merchandise.</p>
+          <a href="#credentials" class="card-link">View Role Details →</a>
+        </div>
+      </article>
+
+      <!-- Project 6: SMFKPM & MEDCOMM Social Media -->
+      <article class="card" data-category="design">
+        <img src="assets/HEAD OF MULTIMEDIA AND PUBLICITY.png" alt="SMFKPM Multimedia Exco" />
+        <div class="card-body">
+          <span class="card-tag">Social Media Direction • SMFKPM & MEDCOMM</span>
+          <h3>Faculty Visual Identity & Event Campaigns</h3>
+          <p>Directed 20+ official Instagram graphics, reels, and event photography across flagship faculty programs including JPeF, MassRec Fiesta, Fresh2Refresh, and Commlympic.</p>
+          <a href="https://www.instagram.com/p/DHUXDpjPO6F/" target="_blank" class="card-link">Explore SMFKPM Feed →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Published Articles Archive (Placed directly above Designed Posters) -->
+  <section id="articles">
+    <div class="section-header">
+      <span class="section-pill">02 • Editorial Archive • Enlinea Sdn Bhd (Motherhood.com.my)</span>
+      <h2>Published Articles Log (60 Live Features)</h2>
+      <p>Out of 162 total articles authored during my content writing internship (133 short-form & 29 long-form), 60 were selected for publication on Motherhood.com.my. Click any headline to read the live article.</p>
+    </div>
+
+    <div class="article-controls">
+      <div class="filters" id="article-filters" style="margin-bottom: 0;">
+        <button class="filter-btn active" onclick="filterArticles('all', this)">All Months</button>
+        <button class="filter-btn" onclick="filterArticles('AUG', this)">August</button>
+        <button class="filter-btn" onclick="filterArticles('SEPT', this)">September</button>
+        <button class="filter-btn" onclick="filterArticles('OCT', this)">October</button>
+        <button class="filter-btn" onclick="filterArticles('NOV', this)">November</button>
+        <button class="filter-btn" onclick="filterArticles('LONG', this)">Long-Form Only</button>
+      </div>
+      <input type="text" id="article-search" class="article-search" placeholder="Search article headlines..." onkeyup="searchArticles()" />
+    </div>
+
+    <div class="article-archive-box" id="article-list">
+      <!-- Populated cleanly via JS array below -->
+    </div>
+  </section>
+
+  <!-- Poster & Graphic Design Gallery -->
+  <section id="posters">
+    <div class="section-header">
+      <span class="section-pill">03 • Visual Archive</span>
+      <h2>Poster & Graphic Design Gallery</h2>
+      <p>Some of the original posters designed. Click any poster to view full size.</p>
+    </div>
+
+    <div class="filters" id="poster-filters">
+      <button class="filter-btn active" onclick="filterPosters('all', this)">All Posters (22)</button>
+      <button class="filter-btn" onclick="filterPosters('events', this)">Flagship Events</button>
+      <button class="filter-btn" onclick="filterPosters('announcements', this)">Academic & Announcements</button>
+      <button class="filter-btn" onclick="filterPosters('festive', this)">Festive & Commemorative</button>
+      <button class="filter-btn" onclick="filterPosters('misc', this)">Newscamp</button>
+    </div>
+
+    <div class="gallery-grid" id="poster-grid">
+      <!-- Flagship Events -->
+      <div class="poster-item" data-poster-cat="events" onclick="openLightbox(this)">
+        <img src="assets/MAIN POSTER MAJLIS APRESIASI 26.png" alt="Main Poster Majlis Apresiasi 26" />
+        <div class="poster-caption">Majlis Apresiasi 2026<span>Main Event Poster</span></div>
+      </div>
+      <div class="poster-item" data-poster-cat="events" onclick="openLightbox(this)">
+        <img src="assets/AUDITION MASSREC FIESTA.png" alt="Audition MassRec Fiesta" />
+        <div class="poster-caption">MassRec Fiesta Poster<span>Event Recruitment Poster</span></div>
+      </div>
+      <div class="poster-item" data-poster-cat="events" onclick="openLightbox(this)">
+        <img src="assets/MASSREC FIESTA RECAP.png" alt="MassRec Fiesta Recap" />
+        <div class="poster-caption">MassRec Fiesta Recap Poster<span>Post-Event Highlights</span></div>
+      </div>
+      <div class="poster-item" data-poster-cat="events" onclick="openLightbox(this)">
+        <img src="assets/MULPUB F2R.png" alt="Multimedia & Publicity Fresh2Refresh" />
+        <div class="poster-caption">Fresh2Refresh (F2R)<span>Multimedia & Publicity</span></div>
+      </div>
+      <div class="poster-item" data-poster-cat="events" onclick="openLightbox(this)">
+        <img src="assets/FEED SMFKPM 25 26.png" alt="Feed SMFKPM 25/26" />
+        <div class="poster-caption">SMFKPM 25/26 Feed<span>Instagram Grid Branding</span></div>
+      </div>
+      <div class="poster-item" data-poster-cat="events" onclick="openLightbox(this)">
+        <img src="assets/FINISHING SCHOOL.png" alt="Finishing School" />
+        <div class="poster-caption">Finishing School<span>Student Development Program</span></div>
+      </div>
+      <div class="poster-item" data-poster-cat="events" onclick="openLightbox(this)">
+        <img src="assets/MESYUARAT PIMPINAN FAKULTI.png" alt="Mesyuarat Pimpinan Fakulti" />
+        <div class="poster-caption">Mesyuarat Pimpinan Fakulti<span>Executive Council Poster</span></div>
+      </div>
+
+      <!-- Academic & Faculty Announcements -->
+      <div class="poster-item" data-poster-cat="announcements" onclick="openLightbox(this)">
+        <img src="assets/SELAMAT DATANG KE FAK.png" alt="Selamat Datang Ke Fakulti" />
+        <div class="poster-caption">Selamat Datang ke FKPM<span>New Student Welcome</span></div>
+      </div>
+      <div class="poster-item" data-poster-cat="announcements" onclick="openLightbox(this)">
+        <img src="assets/SELAMAT MENGUNDI.png" alt="Selamat Mengundi" />
+        <div class="poster-caption">Selamat Mengundi<span>Campus Election Campaign</span></div>
+      </div>
+      <div class="poster-item" data-poster-cat="announcements" onclick="openLightbox(this)">
+        <img src="assets/APRESIASI PENGUNDIAN FKPM.png" alt="Apresiasi Pengundian FKPM" />
+        <div class="poster-caption">Apresiasi Pengundian FKPM<span>Election Voter Appreciation</span></div>
+      </div>
+      <div class="poster-item" data-poster-cat="announcements" onclick="openLightbox(this)">
+        <img src="assets/TAHNIAH MPP 2025_2026.png" alt="Tahniah MPP 2025/2026" />
+        <div class="poster-caption">Tahniah MPP 2025/2026<span>Student Council Congratulatory</span></div>
+      </div>
+      <div class="poster-item" data-poster-cat="announcements" onclick="openLightbox(this)">
+        <img src="assets/CUTI MIDSEM.png" alt="Cuti Midsem" />
+        <div class="poster-caption">Selamat Bercuti (Mid-Sem)<span>Academic Break Notice</span></div>
+      </div>
+      <div class="poster-item" data-poster-cat="announcements" onclick="openLightbox(this)">
+        <img src="assets/TARIKH AKHIR PEMBAYARAN YURAN.png" alt="Tarikh Akhir Pembayaran Yuran" />
+        <div class="poster-caption">Tarikh Akhir Yuran<span>Tuition Deadline Reminder</span></div>
+      </div>
+      <div class="poster-item" data-poster-cat="announcements" onclick="openLightbox(this)">
+        <img src="assets/TEMPOH PELAKSANAAN ENTRANCE SURVEY.png" alt="Tempoh Pelaksanaan Entrance Survey" />
+        <div class="poster-caption">Entrance Survey Notice<span>Academic Portal Info</span></div>
+      </div>
+      <div class="poster-item" data-poster-cat="announcements" onclick="openLightbox(this)">
+        <img src="assets/EXIT SURVERY DAN SUFO.png" alt="Exit Survey dan SUFO" />
+        <div class="poster-caption">Exit Survey & SUFO<span>Course Evaluation Notice</span></div>
+      </div>
+      <div class="poster-item" data-poster-cat="announcements" onclick="openLightbox(this)">
+        <img src="assets/PERINGATAN EXIT SURVEY DAN SUFO.png" alt="Peringatan Exit Survey dan SUFO" />
+        <div class="poster-caption">Peringatan Exit Survey & SUFO<span>Final Reminder Graphic</span></div>
+      </div>
+
+      <!-- Festive & Commemorative -->
+      <div class="poster-item" data-poster-cat="festive" onclick="openLightbox(this)">
+        <img src="assets/PESTA KAAMATAN DAN HARI GAWAI.png" alt="Pesta Kaamatan dan Hari Gawai" />
+        <div class="poster-caption">Kaamatan & Hari Gawai<span>Cultural Celebration Poster</span></div>
+      </div>
+      <div class="poster-item" data-poster-cat="festive" onclick="openLightbox(this)">
+        <img src="assets/SALAM NUZUL AL-QURAN.png" alt="Salam Nuzul Al-Quran" />
+        <div class="poster-caption">Salam Nuzul Al-Quran<span>Religious Observance Graphic</span></div>
+      </div>
+      <div class="poster-item" data-poster-cat="festive" onclick="openLightbox(this)">
+        <img src="assets/SELAMAT MENYAMBUT HARI ARAFAH.png" alt="Selamat Menyambut Hari Arafah" />
+        <div class="poster-caption">Selamat Menyambut Hari Arafah<span>Commemorative Greeting</span></div>
+      </div>
+      <div class="poster-item" data-poster-cat="festive" onclick="openLightbox(this)">
+        <img src="assets/SELAMAT MENYAMBUT HARI WESAK.png" alt="Selamat Menyambut Hari Wesak" />
+        <div class="poster-caption">Selamat Menyambut Hari Wesak<span>Festive Greeting Poster</span></div>
+      </div>
+
+        <!-- Miscellaneous / Newscamp -->
+        <div class="poster-item" data-poster-cat="misc" onclick="openLightbox(this)">
+          <img src="assets/FEED NEWSCAMP 7.0.png" alt="NewsCamp 7.0 Poster" />
+          <div class="poster-caption">NewsCamp 7.0 Event Committee Feed<span>Official Event Committee Feed</span></div>
+        </div>
+        <div class="poster-item" data-poster-cat="misc" onclick="openLightbox(this)">
+          <img src="assets/BACK.png" alt="NewsCamp 7.0 Poster" />
+          <div class="poster-caption">NewsCamp 7.0 TShirt Design<span>Official Event Tshirt Design</span></div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Expanded Poster" />
+    <div class="lightbox-title" id="lightbox-caption"></div>
+  </div>
+
+  <!-- Leadership & Verified Certificates -->
+  <section id="leadership">
+    <div class="section-header">
+      <span class="section-pill">04 • Track Record</span>
+      <h2>Leadership & Verified Credentials</h2>
+      <p>Executive student governance, event direction, and official recognitions.</p>
+    </div>
+
+    <div class="two-col">
+      <!-- Executive & Event Leadership -->
+      <div class="list-box">
+        <h3>Executive & Event Roles</h3>
+        <div class="item">
+          <div class="item-title">Vice President I (Timbalan Presiden I)</div>
+          <div class="item-meta">SMFKPM UiTM Shah Alam • 2026/2027 Session</div>
+          <div class="item-desc">Primary liaison between Student Affairs (HEP) and FCMS students; oversees the Multimedia & Publicity Exco and advises flagship programs like Commlympic 26.</div>
+        </div>
+        <div class="item">
+          <div class="item-title">Head of Multimedia & Publicity Exco</div>
+          <div class="item-meta">SMFKPM UiTM Shah Alam • 2025/2026 Session (2 Terms)</div>
+          <div class="item-desc">Led visual branding, promotional content, and lead event photography across 8+ faculty-wide programs (JPeF, MassRec Fiesta, MassCommight, Majlis Apresiasi).</div>
+        </div>
+        <div class="item">
+          <div class="item-title">Assistant Project Director & Broadcast Switcher</div>
+          <div class="item-meta">Fresh2Refresh (SMFKPM) • 2025 – 2026</div>
+          <div class="item-desc">Co-directed faculty orientation planning, supervised publicity, and operated live multi-camera switching for online broadcasts.</div>
+        </div>
+        <div class="item">
+          <div class="item-title">Head of Creative Writing Department</div>
+          <div class="item-meta">MEDCOMM 25 • 2025 – 2026</div>
+          <div class="item-desc">Spearheaded editorial copywriting for official Instagram campaigns and supported Heritage Fun Run sponsorship outreach.</div>
+        </div>
+      </div>
+
+      <!-- Verified Certificates & Honors -->
+      <div class="list-box" id="credentials">
+        <h3>Verified Certificates & Honors</h3>
+        <div class="item">
+          <div class="item-title">Official Executive Appointment: Timbalan Presiden I</div>
+          <div class="item-meta">Majlis Tertinggi SMFKPM • Session 2026/2027</div>
+          <div class="item-desc">Certified appointment to the highest student executive council at the Faculty of Communication and Media Studies.</div>
+        </div>
+        <div class="item">
+          <div class="item-title">Certificate of Appreciation: Head of Multimedia & Publicity</div>
+          <div class="item-meta">MASSREC FIESTA 2026 • Jan 9, 2026</div>
+          <div class="item-desc">Awarded for leading event publicity, visual assets, and photography coverage.</div>
+        </div>
+        <div class="item">
+          <div class="item-title">Certificate of Appreciation: Program Secretary (Setiausaha)</div>
+          <div class="item-meta">COMMLYMPIC 2025 • SMFKPM</div>
+          <div class="item-desc">Managed official correspondence and administrative operations for the faculty's "Best Program" (Program Terbaik) winner.</div>
+        </div>
+        <div class="item">
+          <div class="item-title">Delegate: Konvensyen Siswa Komunikasi & Media (ComMeCon)</div>
+          <div class="item-meta">UiTM Cawangan Melaka • June 13–14, 2025</div>
+          <div class="item-desc">Represented UiTM Shah Alam in inter-campus Mass Communication discussions and certificate design.</div>
+        </div>
+        <div class="item">
+          <div class="item-title">Academic Excellence: Dean's List Award (Anugerah Dekan)</div>
+          <div class="item-meta">UiTM Shah Alam (Sem 1, 2 & 4) & KPM Indera Mahkota (Sem 1–6)</div>
+          <div class="item-desc">Consistent academic distinction alongside executive student leadership (Degree CGPA: 3.64 | Diploma CGPA: 3.74).</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer / Contact -->
+  <footer id="contact">
+    <h2>Let's Create Something Meaningful.</h2>
+    <p>Open to editorial, multimedia journalism, content strategy, and creative production opportunities.</p>
+    <div class="footer-links">
+      <a href="mailto:afzanotazfa@gmail.com">afzanotazfa@gmail.com</a>
+      <a href="tel:+60103362550">+6010-336 2550</a>
+      <a href="https://linkedin.com/in/nurul-syahira-afzanizam" target="_blank">LinkedIn</a>
+    </div>
+  </footer>
+
+  <!-- Interactive Filtering, Article Archive & Lightbox Scripts -->
+  <script>
+    const publishedArticles = [
+      // AUGUST
+      { month: "AUG", date: "7 Aug", type: "Short", title: "Is this Cleaning and Parenting Hack Really a Hack? You Weigh in", url: "https://story.motherhood.com.my/blog/tiktok-cleaning-hack/" },
+      { month: "AUG", date: "8 Aug", type: "Short", title: "Get Your Kids Busy and Your Rest Fulfilled with these Hacks", url: "https://story.motherhood.com.my/blog/fun-parenting-hacks/" },
+      { month: "AUG", date: "10 Aug", type: "Short", title: "Meet Zoo Negara's Star Cat and Other Animals with Your Kids", url: "https://story.motherhood.com.my/blog/visit-oyen-the-cat-at-the-zoo/" },
+      { month: "AUG", date: "10 Aug", type: "Short", title: "Skibidi Toilet' Syndrome: How to Protect Your Kids", url: "https://story.motherhood.com.my/blog/skibidi-toilet-syndrome-how-to-protect-your-kids/" },
+      { month: "AUG", date: "11 Aug", type: "Short", title: "New Cases of Abuse: What to Look Out for and How to Prevent it", url: "https://story.motherhood.com.my/blog/new-cases-of-abuse-what-to-look-out-for-and-how-to-prevent-it/" },
+      { month: "AUG", date: "11 Aug", type: "Short", title: "Reusable Water Balloons: The Hidden Danger of Famous Toy", url: "https://story.motherhood.com.my/blog/dangers-of-reusable-water-balloons/" },
+      { month: "AUG", date: "15 Aug", type: "Short", title: "Why You Shouldn't Give Marshmallows to Young Kids", url: "https://story.motherhood.com.my/blog/dangers-of-marshmallows/" },
+      { month: "AUG", date: "18 Aug", type: "Short", title: "BMO Ad: An Online Threat Parents Should Worry About", url: "https://story.motherhood.com.my/blog/new-online-threat/" },
+      { month: "AUG", date: "18 Aug", type: "Short", title: "End Scream Fests with Kids with This Five Minutes Rule", url: "https://story.motherhood.com.my/blog/five-minute-rule-to-prevent-fighting/" },
+      { month: "AUG", date: "22 Aug", type: "Short", title: "Roblox Uncovered: Kids at Risk in the Virtual Playground", url: "https://story.motherhood.com.my/blog/roblox-kids-safety/" },
+      { month: "AUG", date: "25 Aug", type: "Short", title: "Play In-Real-Life 'Among Us' with Your Kids", url: "https://story.motherhood.com.my/blog/play-in-real-life-among-us-with-your-kids/" },
+      { month: "AUG", date: "28 Aug", type: "Short", title: "Why These ‘Deddy Bears’ Are Not Made for Kids", url: "https://story.motherhood.com.my/blog/deddy-bears-are-not-made-for-kids/" },
+      { month: "AUG", date: "28 Aug", type: "Short", title: "Khairul Aming Reminds Youngsters to Keep Studying", url: "https://story.motherhood.com.my/blog/khairul-aming-reminds-youngsters-to-keep-studying/" },
+      { month: "AUG", date: "29 Aug", type: "Short", title: "Safer Pregnancies: Health Ministry Launches Whooping Cough Vaccine", url: "https://story.motherhood.com.my/blog/whooping-cough-vaccine/" },
+      { month: "AUG", date: "29 Aug", type: "Long", title: "All Parents Need to Know About Whooping Cough (Pertussis)", url: "https://story.motherhood.com.my/blog/whooping-cough-pertussis/" },
+
+      // SEPTEMBER
+      { month: "SEPT", date: "1 Sept", type: "Long", title: "Interesting Facts to Know About September Babies", url: "https://story.motherhood.com.my/blog/interesting-facts-about-september-babies/" },
+      { month: "SEPT", date: "6 Sept", type: "Short", title: "Virtual Reality: Paedophiles Uses This to Abuse Children", url: "https://story.motherhood.com.my/blog/virtual-reality-paedophiles-use-vr-to-abuse-children/" },
+      { month: "SEPT", date: "6 Sept", type: "Short", title: "The Sound Chart: Why It's Better to Teach by Sound Than Name", url: "https://story.motherhood.com.my/blog/teach-by-sound-than-name/" },
+      { month: "SEPT", date: "11 Sept", type: "Short", title: "Sleep Expert Shares Tips on How to Make Kids Fall Asleep in the Heat", url: "https://story.motherhood.com.my/blog/sleeping-tips-for-hot-nights/" },
+      { month: "SEPT", date: "20 Sept", type: "Short", title: "How to Keep Your Kids Safe from the Damaging 'Lala Bop' Trend", url: "https://story.motherhood.com.my/blog/the-damaging-lala-bop-trend/" },
+      { month: "SEPT", date: "29 Sept", type: "Short", title: "Baby First Aid Experts Advise Parents to Hide Bath Plugs", url: "https://story.motherhood.com.my/blog/baby-first-aid-experts-advise-parents-to-hide-bath-plugs/" },
+      { month: "SEPT", date: "29 Sept", type: "Short", title: "Study Says Blue Light May Cause Early Puberty", url: "https://story.motherhood.com.my/blog/study-says-blue-light-may-cause-early-puberty/" },
+
+      // OCTOBER
+      { month: "OCT", date: "2 Oct", type: "Short", title: "What to Eat in Different Phases of Your Menstrual Cycle", url: "https://story.motherhood.com.my/blog/what-to-eat-in-different-phases-of-your-menstrual-cycle/" },
+      { month: "OCT", date: "2 Oct", type: "Short", title: "Why You Shouldn't Give Babies Water", url: "https://story.motherhood.com.my/blog/why-you-shouldnt-give-babies-water/" },
+      { month: "OCT", date: "2 Oct", type: "Short", title: "Helium Balloons: When Fun Turns Deadly", url: "https://story.motherhood.com.my/blog/helium-balloons/" },
+      { month: "OCT", date: "3 Oct", type: "Short", title: "How to Handle the Haze With Kids", url: "https://story.motherhood.com.my/blog/how-to-handle-the-haze-with-kids/" },
+      { month: "OCT", date: "3 Oct", type: "Short", title: "The Rise of Malaria in Malaysia", url: "https://story.motherhood.com.my/blog/the-rise-of-malaria-in-malaysia-all-you-need-to-know/" },
+      { month: "OCT", date: "4 Oct", type: "Short", title: "OB-GYN Spills the Truth on Pregnancy and Caffeine", url: "https://story.motherhood.com.my/blog/pregnancy-and-caffeine/" },
+      { month: "OCT", date: "5 Oct", type: "Short", title: "Vaginal Prep Before a C-Section You Might Not Know About", url: "https://story.motherhood.com.my/blog/vaginal-prep-before-a-c-section-you-might-not-know-about/" },
+      { month: "OCT", date: "6 Oct", type: "Short", title: "POTS: An Often Misdiagnosed Illness You Should Know About", url: "https://story.motherhood.com.my/blog/pots/" },
+      { month: "OCT", date: "9 Oct", type: "Short", title: "Baby Sleep Expert Debunk 6 Myths About Baby Sleep", url: "https://story.motherhood.com.my/blog/myths-about-baby-sleep/" },
+      { month: "OCT", date: "9 Oct", type: "Short", title: "Protect Young Kids From Vape: The Dangers of It", url: "https://story.motherhood.com.my/blog/protect-our-children-from-vape-the-dangers-of-it/" },
+      { month: "OCT", date: "9 Oct", type: "Short", title: "How to Know Your Magic Number for Breastfeeding and Pumping", url: "https://story.motherhood.com.my/blog/magic-number-for-breastfeeding-and-pumping/" },
+      { month: "OCT", date: "11 Oct", type: "Short", title: "How to Manage Baby's First Night at Home", url: "https://story.motherhood.com.my/blog/babys-first-night-at-home/" },
+      { month: "OCT", date: "11 Oct", type: "Short", title: "What Kids With ADHD Want Parents to Know", url: "https://story.motherhood.com.my/blog/what-kids-with-adhd-want-parents-to-know/" },
+      { month: "OCT", date: "13 Oct", type: "Short", title: "What to Do If Your Child Gets An Electric Shock", url: "https://story.motherhood.com.my/blog/electric-shock/" },
+      { month: "OCT", date: "16 Oct", type: "Short", title: "How to Talk to Your Kids About War", url: "https://story.motherhood.com.my/blog/how-to-talk-to-your-kids-about-war/" },
+      { month: "OCT", date: "16 Oct", type: "Short", title: "Dentist Shares Three Food to Avoid Giving to Children", url: "https://story.motherhood.com.my/blog/tiktok-dentist-shares-three-food-to-avoid-giving-to-children/" },
+      { month: "OCT", date: "17 Oct", type: "Short", title: "Teach Your Kids to Swallow Pills with This Paed's Hack", url: "https://story.motherhood.com.my/blog/swallow-pills/" },
+      { month: "OCT", date: "17 Oct", type: "Short", title: "Why You Shouldn't Give Goats Milk to Babies", url: "https://story.motherhood.com.my/blog/goats-milk-to-babies/" },
+      { month: "OCT", date: "17 Oct", type: "Short", title: "The 10/90 Approach Might Help With the Battle of Getting Ready", url: "https://story.motherhood.com.my/blog/the-10-90-approach-help-with-of-getting-ready/" },
+      { month: "OCT", date: "18 Oct", type: "Short", title: "Why Your Newborn Needs a Vitamin K Shot", url: "https://story.motherhood.com.my/blog/why-your-newborn-needs-a-vitamin-k-shot/" },
+      { month: "OCT", date: "18 Oct", type: "Long", title: "7 Easy and Fun Halloween DIY Crafts for Kids", url: "https://story.motherhood.com.my/blog/halloween-diy-crafts/" },
+      { month: "OCT", date: "26 Oct", type: "Long", title: "It's RSV Season: Here's What You Need to Know", url: "https://story.motherhood.com.my/blog/rsv-season/" },
+
+      // NOVEMBER
+      { month: "NOV", date: "7 Nov", type: "Long", title: "Multiples on the Way: Expecting Twins or More", url: "https://story.motherhood.com.my/blog/expecting-twins/" },
+      { month: "NOV", date: "7 Nov", type: "Long", title: "Microwaves and Plastics: Here’s What You Need to Know", url: "https://story.motherhood.com.my/blog/microwaves-and-plastics/" },
+      { month: "NOV", date: "8 Nov", type: "Long", title: "Skip the Fireworks! Here are Alts to Them for the New Year’s", url: "https://story.motherhood.com.my/blog/skip-the-fireworks-this-new-years/" },
+      { month: "NOV", date: "9 Nov", type: "Long", title: "Is Tuition Really Necessary? The Pros and Cons of Extra Classes", url: "https://story.motherhood.com.my/blog/pros-and-cons-of-tuition/" },
+      { month: "NOV", date: "14 Nov", type: "Long", title: "From ‘Eww!’ to ‘Yum!’: Transforming 8 ‘Yucky’ Foods into Toddler Treats", url: "https://story.motherhood.com.my/blog/foods-toddler-hates/" },
+      { month: "NOV", date: "15 Nov", type: "Long", title: "9 Wacky Children's Books to Expand Your Child's Imagination", url: "https://story.motherhood.com.my/blog/childrens-books-to-expand-imagination/" },
+      { month: "NOV", date: "15 Nov", type: "Long", title: "7 Places You Can Experience a Magical Christmas in Malaysia", url: "https://story.motherhood.com.my/blog/magical-christmas-in-malaysia/" },
+      { month: "NOV", date: "16 Nov", type: "Long", title: "Diaper Drama: Secret Signs Your Baby Needs a Bigger Size", url: "https://story.motherhood.com.my/blog/sizing-up-baby-diaper/" },
+      { month: "NOV", date: "16 Nov", type: "Long", title: "Don't Ignore This: Apple Cider Vinegar's Dark Side Exposed", url: "https://story.motherhood.com.my/blog/side-effects-of-apple-cider-vinegar/" },
+      { month: "NOV", date: "17 Nov", type: "Long", title: "How to Transition Your Baby Out of the Swaddle", url: "https://story.motherhood.com.my/blog/how-to-transition-your-baby-out-of-the-swaddle/" },
+      { month: "NOV", date: "17 Nov", type: "Long", title: "Tantrum-Free Shopping: Conquering Grocery Stores with Your Little One", url: "https://story.motherhood.com.my/blog/grocery-shop-without-tantrum/" },
+      { month: "NOV", date: "20 Nov", type: "Long", title: "7 Secrets to Raising a Financial Whiz Kid", url: "https://story.motherhood.com.my/blog/raising-a-financial-whiz-kid/" },
+      { month: "NOV", date: "21 Nov", type: "Short", title: "Mum Devastated, Loses Baby at 9 Months Due to Cat Faeces", url: "https://story.motherhood.com.my/blog/cat-faeces-cause-of-miscarriage/" },
+      { month: "NOV", date: "23 Nov", type: "Long", title: "How to Spark Biz Genius in Kids", url: "https://story.motherhood.com.my/blog/how-to-spark-biz-genius-in-kids/" },
+      { month: "NOV", date: "23 Nov", type: "Long", title: "Parenting Through the Ages: Bridging the Generation Gap in Your Family", url: "https://story.motherhood.com.my/blog/bridging-the-generation-gap-in-the-family/" },
+      { month: "NOV", date: "24 Nov", type: "Long", title: "How to Raise Open-Minded and Socially Conscious Malaysian Kids", url: "https://story.motherhood.com.my/blog/raising-socially-conscious-kids/" }
+    ];
+
+    let currentArticleFilter = 'all';
+
+    function renderArticles() {
+      const container = document.getElementById('article-list');
+      const query = document.getElementById('article-search').value.toLowerCase();
+
+      const filtered = publishedArticles.filter(art => {
+        const matchesFilter =
+          currentArticleFilter === 'all' ||
+          (currentArticleFilter === 'LONG' && art.type === 'Long') ||
+          art.month === currentArticleFilter;
+        const matchesQuery = art.title.toLowerCase().includes(query);
+        return matchesFilter && matchesQuery;
+      });
+
+      container.innerHTML = filtered.map((art, index) => `
+        <a href="${art.url}" target="_blank" class="article-row">
+          <div class="article-title-wrap">
+            <span class="article-num">${String(index + 1).padStart(2, '0')}</span>
+            <span class="article-name">${art.title} ↗</span>
+          </div>
+          <div class="article-badges">
+            <span class="type-pill ${art.type === 'Long' ? 'long' : ''}">${art.type}-Form</span>
+            <span class="date-pill">${art.date}</span>
+          </div>
+        </a>
+      `).join('');
+    }
+
+    function filterArticles(filter, btnElement) {
+      currentArticleFilter = filter;
+      const buttons = document.querySelectorAll('#article-filters .filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      btnElement.classList.add('active');
+      renderArticles();
+    }
+
+    function searchArticles() {
+      renderArticles();
+    }
+
+    // Initial render of all 60 published articles
+    renderArticles();
+
+    function filterWork(category, btnElement) {
+      const cards = document.querySelectorAll('#work-grid .card');
+      const buttons = document.querySelectorAll('#work-filters .filter-btn');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      btnElement.classList.add('active');
+
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function filterPosters(category, btnElement) {
+      const items = document.querySelectorAll('#poster-grid .poster-item');
+      const buttons = document.querySelectorAll('#poster-filters .filter-btn');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      btnElement.classList.add('active');
+
+      items.forEach(item => {
+        if (category === 'all' || item.dataset.posterCat === category) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    function openLightbox(card) {
+      const img = card.querySelector('img');
+      const title = card.querySelector('.poster-caption').innerText.replace('\n', ' — ');
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox-caption').innerText = title;
+      document.getElementById('lightbox').classList.add('open');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+  </script>
+</body>
+</html>
